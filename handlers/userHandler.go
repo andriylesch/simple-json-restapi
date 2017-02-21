@@ -11,10 +11,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// handlerFunction for root URL
 func Index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Welcome dear User!")
 }
 
+// handlerFunction for /users/ url path
 func HandleUsers(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -23,6 +25,7 @@ func HandleUsers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(users)
 }
 
+// handlerFunction for /user/{id} url path
 func HandleUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 

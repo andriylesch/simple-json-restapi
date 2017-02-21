@@ -16,8 +16,10 @@ type Route struct {
 
 var routes []Route
 
+// init method which will be automatically run 
 func init() {
 
+	// init root URL and handler function  
 	routes = append(routes, Route{
 		Name:        "Index",
 		Methods:     []string{"GET"},
@@ -25,6 +27,8 @@ func init() {
 		HandlerFunc: handlers.Index,
 	})
 
+	/* init /user/{id} URL and handler function. 
+	One handler function for three type of requests */
 	routes = append(routes, Route{
 		Name:        "User",
 		Methods:     []string{"DELETE", "GET", "POST"},
@@ -32,6 +36,7 @@ func init() {
 		HandlerFunc: handlers.HandleUser,
 	})
 
+	/* init /users URL and handler function. */
 	routes = append(routes, Route{
 		Name:        "Users",
 		Methods:     []string{"GET"},
@@ -40,6 +45,7 @@ func init() {
 	})
 }
 
+/* registering all url paths */
 func NewRouter() *mux.Router {
 
 	router := mux.NewRouter().StrictSlash(true)
