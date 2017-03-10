@@ -54,7 +54,9 @@ EXPOSE 5000
 # ADD http://your_url.com/some.tar.xz /tmp/usr
 # ADD URL to <DIRECTORY OF CONTAINER>
 
+ADD simple-json-restapi /bin/sh
 
 ##########################################################
 # ENTRYPOINT - it can be used to set the primary command for the image.
 
+ENTRYPOINT ["./bin/sh"]
